@@ -1,0 +1,9 @@
+/* logo fill color */
+.App-logo path {
+  fill: #61dafb;
+}
+
+/* --logo-primary color */
+.App-logo .primary {
+  fill: #61dafb;
+}
