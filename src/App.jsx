@@ -3,6 +3,7 @@ import bcd from "@mdn/browser-compat-data";
 import logo from "./logo.svg";
 import "./App.css";
 import StockChart from "./components/stockChart";
+import ExampleBarChart from "./components/exampleBarChart";
 
 function App() {
   // let chart = <BcdChart data={hubData} title={"Browser Compatibility Data"} />;
@@ -21,25 +22,8 @@ function App() {
       dividend: 1.67,
     },
     chartData: {
-      labels: [
-        "10:00",
-        "",
-        "",
-        "",
-        "12:00",
-        "",
-        "",
-        "",
-        "2:00",
-        "",
-        "",
-        "",
-        "4:00",
-      ],
-      data: [
-        2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-        2.325, 2.32,
-      ],
+      labels: ["10:00", "", "", "", "12:00", "", "", "", "2:00", "", "", "", "4:00"],
+      data: [2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325, 2.325, 2.32],
     },
   };
 
@@ -50,24 +34,23 @@ function App() {
           <img src={logo} className="App-logo items-center h-8" alt="logo" />
         </div>
         <div>
-          <h2 className="h-16 p-8 flex justify-center">
-            Exploring Browser Compatibility Data
-          </h2>
+          <h2 className="h-16 p-8 flex justify-center">Exploring Browser Compatibility Data</h2>
         </div>
       </div>
-      <div className="container">
-        {/* {chart} */}
-        <div className="min-w-screen min-h-screen  flex items-center justify-center px-5 py-5">
-          <StockChart info={data} />
-        </div>
-        <input type="text" list="features" />
-        <datalist id="features">
-          {Object.keys(docBodySupport).map((key) => (
-            <option value={key} />
-          ))}
-        </datalist>
-        {/* based on the chosen item in datalist, set variable data to display */}
+
+      <div className="min-w-screen  flex items-center justify-center px-5 py-5">
+        <StockChart info={data} />
       </div>
+      <div className="min-w-screen  flex items-center justify-center px-5 py-5">
+        <ExampleBarChart></ExampleBarChart>
+      </div>
+      <input type="text" list="features" />
+      <datalist id="features">
+        {Object.keys(docBodySupport).map((key) => (
+          <option value={key} />
+        ))}
+      </datalist>
+      {/* based on the chosen item in datalist, set variable data to display */}
     </div>
   );
 }
